@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AFProgressiveImageDownload"
-  s.version      = "0.1"
+  s.version      = "0.11"
   s.summary      = "A category on UIView that allows you to progressively download images providing seamless enhancement."
   s.homepage     = "http://github.com/subdigital/AFProgressiveImageDownload"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.source_files = 'AFProgressiveImageDownload/**/*.{h,m}'
 
   s.requires_arc = true
-  s.dependency 'AFNetworking', '~> 1.0'
+  s.dependency 'AFNetworking'
 end

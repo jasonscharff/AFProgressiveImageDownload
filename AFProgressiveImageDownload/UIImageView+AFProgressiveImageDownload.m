@@ -45,18 +45,20 @@
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(imageUrl, YES, nil, [remainingUrls count] == 0);
+              [strongSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
             });
         }
         
-        [strongSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
+        
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         if (completionBlock) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 completionBlock(imageUrl, NO, error, [remainingUrls count] == 0);
+              [weakSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
             });
         }
         
-        [weakSelf fetchNextImage:remainingUrls withCompletion:completionBlock];
+        
     }];
 }
 
